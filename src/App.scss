@@ -3,7 +3,12 @@
 
 body {
   font-family: "Space Grotesk", sans-serif;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
+
 .App {
   text-align: center;
 }
@@ -38,6 +43,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

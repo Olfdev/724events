@@ -23,7 +23,7 @@ const Page = () => {
         <Slider />
       </section>
       <section className="ServicesContainer">
-        <h2 className="Title">Nos services</h2>
+        <h2 className="Title" id="nos-services">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
           <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
@@ -52,11 +52,11 @@ const Page = () => {
         </div>
       </section>
       <section className="EventsContainer">
-        <h2 className="Title">Nos réalisations</h2>
+        <h2 className="Title" id="nos-realisations" data-testid="realisations">Nos réalisations</h2>
         <EventList />
       </section>
       <section className="PeoplesContainer">
-        <h2 className="Title">Notre équipe</h2>
+        <h2 className="Title" id="notre-equipe" data-testid="equipe">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
           <PeopleCard
@@ -115,14 +115,18 @@ const Page = () => {
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
-        />
+        <h3>Notre dernière prestation</h3>
+        {last && last.cover && last.title ? (
+          <EventCard
+            imageSrc={last.cover}
+            title={last.title}
+            date={new Date(last.date)}
+            small
+            label="boom"
+          />
+        ) : (
+          <p>Dernière prestation non disponible</p>
+        )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
